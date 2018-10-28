@@ -372,7 +372,7 @@ class HostViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //MARK: SongsTableViewCellDelegate Method
     func didChangeVoteCount(indexPath: IndexPath) {
-        //albums[indexPath.section].songs[indexPath.row]
+        
         let songID: NSNumber = albums[indexPath.section].songs[indexPath.row].songId
         let item: MPMediaItem = musicQuery.getItem(songId: songID)
         let predicate = MPMediaPropertyPredicate(value: item.persistentID, forProperty: MPMediaItemPropertyPersistentID)
