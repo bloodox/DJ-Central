@@ -345,6 +345,7 @@ class HostViewController: UIViewController, UITableViewDelegate, UITableViewData
         songsCell.voteCountLabel.text = "\(songsCell.voteCount)"
         songsCell.songTitleLabel?.text = albums[indexPath.section].songs[indexPath.row].songTitle
         songsCell.artistLabel?.text = albums[indexPath.section].songs[indexPath.row].artistName
+        
         let songID: NSNumber = albums[indexPath.section].songs[indexPath.row].songId
         let item: MPMediaItem = musicQuery.getItem(songId: songID)
         if let artwork: MPMediaItemArtwork = item.value(forProperty: MPMediaItemPropertyArtwork) as? MPMediaItemArtwork {
@@ -371,6 +372,7 @@ class HostViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //MARK: SongsTableViewCellDelegate Method
     func didChangeVoteCount(indexPath: IndexPath) {
+        //albums[indexPath.section].songs[indexPath.row]
         let songID: NSNumber = albums[indexPath.section].songs[indexPath.row].songId
         let item: MPMediaItem = musicQuery.getItem(songId: songID)
         let predicate = MPMediaPropertyPredicate(value: item.persistentID, forProperty: MPMediaItemPropertyPersistentID)
